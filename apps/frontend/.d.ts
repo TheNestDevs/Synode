@@ -1,0 +1,1 @@
+declare module '@gustash/react-native-smart-lock';
