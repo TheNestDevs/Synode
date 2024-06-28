@@ -76,7 +76,7 @@ android {
 
     namespace "com.frontend"
     defaultConfig {
-        applicationId "com.frontend"
+        applicationId "com.frontend.h4b"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
