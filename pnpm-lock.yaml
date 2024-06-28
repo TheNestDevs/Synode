@@ -60,9 +60,6 @@ importers:
       '@react-native-community/cli-platform-android':
         specifier: ^13.6.9
         version: 13.6.9
-      '@react-native-google-signin/google-signin':
-        specifier: ^12.2.1
-        version: 12.2.1(react-dom@18.3.1(react@18.2.0))(react-native@0.74.2(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7))(@types/react@18.3.3)(react@18.2.0))(react@18.2.0)
       '@react-native/gradle-plugin':
         specifier: ^0.74.84
         version: 0.74.84
@@ -80,7 +77,7 @@ importers:
         specifier: ^7.20.0
         version: 7.24.7(@babel/core@7.24.7)
       '@babel/runtime':
-        specifier: ^7.24.7
+        specifier: ^7.20.0
         version: 7.24.7
       '@react-native/babel-preset':
         specifier: 0.74.84
@@ -1204,19 +1201,6 @@ packages:
     resolution: {integrity: sha512-0lRdgLNaXixWY4BfFRl1J6Ao9Lapo2z+++iE7TD4GAbuxOWJSyFi+KUA8XNfSDyML4jFO02MZgyBPxAWdaminQ==}
     engines: {node: '>=18'}
     hasBin: true
-
-  '@react-native-google-signin/google-signin@12.2.1':
-    resolution: {integrity: sha512-qt2Cb+bN2NS8BBT06M3UbLVS1gaSYTenNh4uZtPNmyJC23xZAynLkuhvsC6gmeEnxcj0wLVUn1Es+LSHw0OhVQ==}
-    peerDependencies:
-      expo: '>=50.0.0'
-      react: '*'
-      react-dom: '*'
-      react-native: '*'
-    peerDependenciesMeta:
-      expo:
-        optional: true
-      react-dom:
-        optional: true
 
   '@react-native/assets-registry@0.74.84':
     resolution: {integrity: sha512-dzUhwyaX04QosWZ8zyaaNB/WYZIdeDN1lcpfQbqiOhZJShRH+FLTDVONE/dqlMQrP+EO7lDqF0RrlIt9lnOCQQ==}
@@ -5544,13 +5528,6 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@react-native-google-signin/google-signin@12.2.1(react-dom@18.3.1(react@18.2.0))(react-native@0.74.2(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7))(@types/react@18.3.3)(react@18.2.0))(react@18.2.0)':
-    dependencies:
-      react: 18.2.0
-      react-native: 0.74.2(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7))(@types/react@18.3.3)(react@18.2.0)
-    optionalDependencies:
-      react-dom: 18.3.1(react@18.2.0)
-
   '@react-native/assets-registry@0.74.84': {}
 
   '@react-native/babel-plugin-codegen@0.74.84(@babel/preset-env@7.24.7(@babel/core@7.24.7))':
@@ -8317,13 +8294,6 @@ snapshots:
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
-
-  react-dom@18.3.1(react@18.2.0):
-    dependencies:
-      loose-envify: 1.4.0
-      react: 18.2.0
-      scheduler: 0.23.2
-    optional: true
 
   react-dom@18.3.1(react@18.3.1):
     dependencies:

@@ -24,7 +24,7 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-import Login from './components/Login';
+import Login from './screens/Auth';
 
 
 function App(): React.JSX.Element {
