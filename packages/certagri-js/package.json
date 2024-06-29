@@ -1,6 +1,7 @@
 {
   "name": "@project-p/certagri-js",
   "module": "index.ts",
+  "version": "0.0.1",
   "description": "Certagri-js is a custom JavaScript library that provides a set of functions to interact with the Certificate Agrigator Module",
   "author": {
     "email": "project-p@b68.dev",
