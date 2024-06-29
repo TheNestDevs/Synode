@@ -2,14 +2,19 @@
   "name": "api",
   "version": "0.0.1",
   "scripts": {
-    "dev": "wrangler dev src/index.ts",
-    "deploy": "wrangler deploy --minify src/index.ts"
+    "dev": "node --loader @esbuild-kit/esm-loader src/index.ts",
+    "build": "tsc"
   },
   "dependencies": {
-    "hono": "^4.4.9"
+    "@project-p/certagri-js": "*",
+    "better-sqlite3": "^11.1.1",
+    "hono": "^4.4.9",
+    "hyperflake": "^0.1.2"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20240529.0",
-    "wrangler": "^3.57.2"
+    "@esbuild-kit/esm-loader": "^2.6.5",
+    "@types/better-sqlite3": "^7.6.10",
+    "@types/node": "^20.14.9",
+    "typescript": "^5.2.2"
   }
 }
