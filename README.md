@@ -25,9 +25,14 @@ Synode is a payment app and wallet that focuses on easy, secure transactions. Fo
 
 ✅ It syncs all its transactions when any of the two parties involved are online for the first time, and all its transactions are secured in a blockchain.
 
-## Packages
+## 📦 Packages
+- **Certificate Aggregator**: Helps create key pairs for encryption and signing of transactions. A package that mostly focuses on the cryptography and security of transactions.
+- **Mobile App and Wallet**: The main product, enables smooth, secure transactions even when offline (between nearby devices). Wallet stores cryptographic tokens of fixed value, these can be exchanged with cash to realise transactions. 
 
-## Dev
+## 👩‍💻 Dev
+
+To get the mobile app running locally:
+
 
 
 
