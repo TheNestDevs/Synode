@@ -1,12 +1,28 @@
 {
-  "name": "certagri-js",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "name": "@project-p/certagri-js",
+  "module": "index.ts",
+  "description": "Certagri-js is a custom JavaScript library that provides a set of functions to interact with the Certificate Agrigator Module",
+  "author": {
+    "email": "project-p@b68.dev",
+    "name": "Team Nest Devs"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "repository": {
+    "directory": "packages/certagri-js",
+    "type": "git",
+    "url": "https://github.com/TheNestDevs/ProjectP.git"
+  },
+  "type": "module",
+  "devDependencies": {
+    "@types/node": "latest",
+    "vitest": "^1.6.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "openpgp": "^5.11.2"
+  },
+  "scripts": {
+    "test": "vitest"
+  }
 }
