@@ -1,41 +1,91 @@
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:google_sign_in/google_sign_in.dart';
+import 'package:dartz/dartz.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
-import '../../../../app/failure/failure.dart';
+import '../../../../app/error/failure.dart';
 import '../interface/auth_interface.dart';
 
-class AuthRepository implements IAuth {
-  final GoogleSignIn _googleSignIn;
+class AuthRepository extends IAuth {
+  final SupabaseClient _client;
 
   AuthRepository({
-    required GoogleSignIn googleSignIn,
-  }) : _googleSignIn = googleSignIn;
+    required SupabaseClient client,
+  }) : _client = client;
 
   @override
-  Future<(UserCredential?, Failure?)> googleSignIn() async {
+  Either<Session, Failure> getCurrentSession() {
     try {
-      final GoogleSignInAccount? userAccount = await _googleSignIn.signIn();
-
-      final GoogleSignInAuthentication? userAuth =
-          await userAccount?.authentication;
-
-      final OAuthCredential credential = GoogleAuthProvider.credential(
-        accessToken: userAuth?.accessToken,
-        idToken: userAuth?.idToken,
-      );
-      return (
-        await FirebaseAuth.instance.signInWithCredential(credential),
-        null
-      );
-    } on FirebaseAuthException catch (err) {
-      return (null, Failure(message: err.code.toUpperCase()));
-    } catch (err) {
-      return (null, Failure(message: err.toString().toUpperCase()));
+      Session? session = _client.auth.currentSession;
+      if (session != null) {
+        return Left(session);
+      } else {
+        return const Right(Failure(message: 'Session not found or Ended'));
+      }
+    } catch (e) {
+      return Right(Failure(message: e.toString()));
     }
   }
 
   @override
-  Future<void> signOut() async {
-    await FirebaseAuth.instance.signOut();
+  Either<User, Failure> getCurrentUser() {
+    try {
+      User? user = _client.auth.currentUser;
+      if (user != null) {
+        return Left(user);
+      } else {
+        return const Right(Failure(message: 'User not found'));
+      }
+    } catch (e) {
+      return Right(Failure(message: e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<AuthResponse, Failure>> signIn({
+    required String email,
+    required String password,
+  }) async {
+    try {
+      AuthResponse response = await _client.auth.signInWithPassword(
+        email: email,
+        password: password,
+      );
+
+      // if (response.session != null) {
+      //   await cacheStringMap('user', {
+      //     'email': email,
+      //     'username': response.session!.user.userMetadata!['username'] ?? ''
+      //   });
+      // }
+
+      return Left(response);
+    } catch (e) {
+      return Right(Failure(message: e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<AuthResponse, Failure>> signUp({
+    required String username,
+    required String email,
+    required String password,
+  }) async {
+    try {
+      AuthResponse response = await _client.auth.signUp(
+        email: email,
+        password: password,
+        data: {'username': username},
+      );
+
+      // if (response.session != null) {
+      //   await cacheStringMap('user', {
+      //     'email': email,
+      //     'username': username,
+      //   });
+      // }
+
+      return Left(response);
+    } catch (e) {
+      return Right(Failure(message: e.toString()));
+    }
   }
 }

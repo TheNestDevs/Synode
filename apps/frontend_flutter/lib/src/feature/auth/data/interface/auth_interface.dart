@@ -1,9 +1,21 @@
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:dartz/dartz.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
-import '../../../../app/failure/failure.dart';
+import '../../../../app/error/failure.dart';
 
 abstract class IAuth {
-  Future<(UserCredential?, Failure?)> googleSignIn();
+  Future<Either<AuthResponse, Failure>> signUp({
+    required String username,
+    required String email,
+    required String password,
+  });
 
-  Future<void> signOut();
+  Future<Either<AuthResponse, Failure>> signIn({
+    required String email,
+    required String password,
+  });
+
+  Either<User, Failure> getCurrentUser();
+
+  Either<Session, Failure> getCurrentSession();
 }
