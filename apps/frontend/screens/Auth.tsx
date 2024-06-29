@@ -17,8 +17,9 @@ export default function Login(): React.JSX.Element {
   const onGoogleSignIn = async () => {
     try {
       GoogleSignin.configure({
-        webClientId: '219138509438-vtij36nbrm75sp5stp4glpj8qbcq5i8e.apps.googleusercontent.com',
-        offlineAccess: true
+        webClientId:
+          '219138509438-vtij36nbrm75sp5stp4glpj8qbcq5i8e.apps.googleusercontent.com',
+        offlineAccess: true,
       });
       await GoogleSignin.hasPlayServices();
       const userInfo = await GoogleSignin.signIn();
