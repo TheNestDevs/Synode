@@ -24,24 +24,22 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {Home} from './screens/Home';
 import Login from './screens/Auth';
 
+const {Navigator, Screen} = createNativeStackNavigator();
 
 function App(): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <Login />
-    </SafeAreaView>
+    <NavigationContainer>
+      <Navigator>
+        <Screen name="Home" options={{headerShown: false}} component={Home} />
+        <Screen name="Login" options={{headerShown: false}} component={Login} />
+      </Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-});
 
 export default App;
