@@ -4,10 +4,14 @@ import 'package:go_router/go_router.dart';
 import '../../feature/auth/presentation/auth_screen.dart';
 import '../../feature/home/presentation/screens/home_screen.dart';
 import '../../feature/home/presentation/screens/widgets/qr_code_screen.dart';
+import '../service_locator/service_locator.dart';
+import '../service_locator/supabase_service.dart';
 
 class AppRouter {
   static GoRouter router = GoRouter(
-    initialLocation: '/auth',
+    initialLocation: sl<SupabaseService>().client.auth.currentSession != null
+        ? "/"
+        : "/auth",
     routes: [
       GoRoute(
         path: '/auth',

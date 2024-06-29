@@ -34,6 +34,7 @@ class StyledFormField extends StatelessWidget {
       controller: controller,
       obscureText: obscureText ?? false,
       validator: validator,
+      style: TextStyle(color: Colors.white),
       decoration: InputDecoration(
         contentPadding: const EdgeInsets.all(12),
         prefixIcon: icon,
