@@ -6,7 +6,7 @@ import {
     constants,
     privateDecrypt,
 } from 'crypto';
-import type { KeyObject } from 'crypto';
+import type { KeyObject } from 'node:crypto';
 
 import {
     generateKey,
