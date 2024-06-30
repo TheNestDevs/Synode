@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
 class QrCodeScreen extends StatefulWidget {
@@ -18,6 +19,12 @@ class _QrCodeScreenState extends State<QrCodeScreen> {
   void didChangeDependencies() async {
     super.didChangeDependencies();
     await controller?.resumeCamera();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Future.delayed(const Duration(seconds: 3), () {
+        context.pushReplacement('/send');
+      });
+    });
   }
 
   @override
@@ -38,7 +45,7 @@ class _QrCodeScreenState extends State<QrCodeScreen> {
               child: (result != null)
                   ? Text(
                       'Barcode Type: ${describeEnum(result!.format)}   Data: ${result!.code}')
-                  : Text('Scan a code'),
+                  : const Text('Scanning a code'),
             ),
           )
         ],

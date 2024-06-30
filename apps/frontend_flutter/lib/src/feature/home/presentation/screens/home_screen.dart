@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:frontend_flutter/src/app/service_locator/supabase_service.dart';
+import 'package:go_router/go_router.dart';
 import 'package:network_info_plus/network_info_plus.dart';
 
 import '../../../../app/service_locator/service_locator.dart';
@@ -68,7 +69,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       const Spacer(),
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () => context.push('/scan-qr'),
                         icon: const Icon(
                           Icons.qr_code_2_outlined,
                           color: Colors.white,

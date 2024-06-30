@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:frontend_flutter/src/feature/home/presentation/screens/widgets/send_screen.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../feature/auth/presentation/auth_screen.dart';
@@ -32,6 +33,13 @@ class AppRouter {
         pageBuilder: (context, state) => MaterialPage(
           key: state.pageKey,
           child: const QrCodeScreen(),
+        ),
+      ),
+      GoRoute(
+        path: '/send',
+        pageBuilder: (context, state) => MaterialPage(
+          key: state.pageKey,
+          child: const SendScreen(),
         ),
       ),
     ],
